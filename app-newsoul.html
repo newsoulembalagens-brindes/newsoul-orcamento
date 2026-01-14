@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>NewSoul Brindes | Orçamento</title>
+    <meta name="description" content="Solicite seu orçamento na NewSoul Brindes pelo WhatsApp." />
+
+    <style>
+        :root {
+            --bg: #ffffff;
+            --card: #ffffff;
+            --text: #1f2937;
+            /* cinza escuro */
+            --muted: #6b7280;
+            /* cinza médio */
+            --line: #e5e7eb;
+            /* borda leve */
+            --soft: #f9fafb;
+            /* fundo suave */
+            --accent: #b08968;
+            /* dourado suave */
+            --accent2: #d4a373;
+            /* dourado claro */
+            --btnText: #111827;
+            --radius: 18px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        .wrap {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 28px 16px;
+            background:
+                radial-gradient(900px 600px at 15% 10%, rgba(212, 163, 115, .12), transparent 60%),
+                radial-gradient(900px 600px at 90% 30%, rgba(176, 137, 104, .10), transparent 55%),
+                var(--bg);
+        }
+
+        .card {
+            width: min(680px, 100%);
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            box-shadow: 0 10px 30px rgba(17, 24, 39, 0.06);
+            overflow: hidden;
+        }
+
+        header {
+            padding: 26px 22px 10px 22px;
+            border-bottom: 1px solid var(--line);
+            background: linear-gradient(180deg, rgba(249, 250, 251, 1), rgba(255, 255, 255, 1));
+        }
+
+        .brand {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+        }
+
+        .logo {
+            width: 64px;
+            height: 64px;
+            border-radius: 14px;
+            border: 1px solid var(--line);
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            flex: 0 0 auto;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 20px;
+            letter-spacing: .2px;
+        }
+
+        .subtitle {
+            margin: 6px 0 0 0;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        main {
+            padding: 18px 22px 22px 22px;
+        }
+
+        .notice {
+            background: var(--soft);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 12px 14px;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.45;
+            margin-bottom: 16px;
+        }
+
+        .notice strong {
+            color: var(--text);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        @media (max-width: 640px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            color: var(--muted);
+            margin: 10px 0 6px;
+        }
+
+        select,
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px 12px;
+            border-radius: 14px;
+            border: 1px solid var(--line);
+            background: #fff;
+            color: var(--text);
+            outline: none;
+            font-size: 15px;
+            transition: box-shadow .15s ease, border-color .15s ease;
+        }
+
+        textarea {
+            min-height: 92px;
+            resize: vertical;
+        }
+
+        select:focus,
+        input:focus,
+        textarea:focus {
+            border-color: rgba(176, 137, 104, .55);
+            box-shadow: 0 0 0 4px rgba(176, 137, 104, .12);
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 16px;
+        }
+
+        .btn {
+            border: 1px solid var(--line);
+            background: #fff;
+            color: var(--btnText);
+            padding: 12px 14px;
+            border-radius: 14px;
+            cursor: pointer;
+            font-weight: 650;
+            font-size: 14px;
+            transition: transform .05s ease, box-shadow .15s ease, border-color .15s ease;
+        }
+
+        .btn:hover {
+            border-color: rgba(176, 137, 104, .55);
+            box-shadow: 0 10px 20px rgba(17, 24, 39, 0.06);
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+        }
+
+        .btn-primary {
+            background: linear-gradient(180deg, rgba(212, 163, 115, .35), rgba(176, 137, 104, .20));
+            border-color: rgba(176, 137, 104, .45);
+        }
+
+        .footer {
+            padding: 14px 22px 20px 22px;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.45;
+            background: #fff;
+        }
+
+        .pill {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            background: var(--soft);
+            color: var(--muted);
+            font-size: 12px;
+            margin-top: 10px;
+        }
+
+        .hint {
+            margin-top: 6px;
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .ok {
+            margin-top: 12px;
+            display: none;
+            padding: 10px 12px;
+            border-radius: 14px;
+            border: 1px solid var(--line);
+            background: var(--soft);
+            color: var(--text);
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <section class="card" aria-label="Formulário de orçamento NewSoul Brindes">
+            <header>
+                <div class="brand">
+                    <div class="logo" aria-label="Logo NewSoul">
+                        <!-- TROQUE o src abaixo pelo arquivo da sua logo (ex: logo-newsoul.jpg) -->
+                        <img src="logo-newsoul.png" alt="NewSoul Brindes" />
+                    </div>
+
+                    <div>
+                        <h1>NewSoul Brindes — Solicitar Orçamento</h1>
+                        <p class="subtitle">
+                            Preencha em 30 segundos e envie direto no WhatsApp.
+                        </p>
+                        <span class="pill">Quantidade mínima: 100 unidades</span>
+                    </div>
+                </div>
+            </header>
+
+            <main>
+                <div class="notice">
+                    ✨ <strong>Bem-vindo(a) à NewSoul Brindes!</strong><br />
+                    Muito obrigado por seu contato. Vamos preparar seu <strong>orçamento personalizado</strong>.<br />
+                    Para agilizar, informe abaixo os dados do seu pedido.
+                </div>
+
+                <form id="orcamentoForm">
+                    <div class="grid">
+                        <div>
+                            <label for="item">Qual item você deseja orçar?</label>
+                            <select id="item" required>
+                                <option value="" selected disabled>Selecione uma opção</option>
+                                <option>Sacolas em PVC</option>
+                                <option>Sacolas Eco (algodão cru)</option>
+                                <option>Necessaires</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="qtd">Quantidade desejada</label>
+                            <input id="qtd" type="text" placeholder="Ex.: 100, 300, 500, 1.000" required />
+                            <div class="hint">Dica: se souber a quantidade exata, melhor ainda 😉</div>
+                        </div>
+                    </div>
+
+                    <label for="obs">Observações (opcional)</label>
+                    <textarea id="obs"
+                        placeholder="Ex.: cores, personalização, prazo, para qual evento/loja, etc."></textarea>
+
+                    <div class="actions">
+                        <button class="btn btn-primary" type="button" id="btnWhats">
+                            Enviar no WhatsApp
+                        </button>
+
+                        <button class="btn" type="button" id="btnCopiar">
+                            Copiar mensagem
+                        </button>
+
+                        <button class="btn" type="reset">
+                            Limpar
+                        </button>
+                    </div>
+
+                    <div class="footer">
+                        <strong>NewSoul Brindes Personalizados</strong><br>
+                        CNPJ: 41.340.901/0001-00<br>
+                        Rua Eng. Guilherme Cristiano Frender, 1141<br>
+                        Vila Antonieta – São Paulo / SP<br>
+                        CEP: 03477-000<br><br>
+
+                        Atendimento via WhatsApp:<br>
+                        <strong>(11) 99538-5826</strong><br><br>
+
+                        Ao enviar este formulário, você confirma os dados para elaboração do orçamento.
+                        Em breve nossa equipe entrará em contato com valores, prazos e condições.
+                    </div>
+
+
+                    <script>
+                        // WhatsApp da NewSoul
+                        const WHATSAPP_NUMBER = "5511995385826";
+
+                        const $ = (id) => document.getElementById(id);
+
+                        function buildMessage() {
+                            const item = $("item").value.trim();
+                            const qtd = $("qtd").value.trim();
+                            const obs = $("obs").value.trim();
+
+                            // Validação básica
+                            if (!item || !qtd) return null;
+
+                            const lines = [
+                                "✨ Olá! Vim pelo formulário de orçamento da NewSoul Brindes.",
+                                "",
+                                `✅ Item: ${item}`,
+                                `✅ Quantidade: ${qtd}`,
+                            ];
+
+                            if (obs) {
+                                lines.push(`📝 Observações: ${obs}`);
+                            }
+
+                            lines.push("", "Obrigado(a)! Aguardo retorno com valores e prazos. 🙌");
+
+                            return lines.join("\n");
+                        }
+
+                        function openWhatsApp() {
+                            const msg = buildMessage();
+                            if (!msg) {
+                                alert("Por favor, selecione o item e informe a quantidade desejada.");
+                                return;
+                            }
+                            const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+                            window.open(url, "_blank", "noopener,noreferrer");
+                        }
+
+                        async function copyMessage() {
+                            const msg = buildMessage();
+                            if (!msg) {
+                                alert("Por favor, selecione o item e informe a quantidade desejada.");
+                                return;
+                            }
+                            try {
+                                await navigator.clipboard.writeText(msg);
+                                $("okBox").style.display = "block";
+                                setTimeout(() => $("okBox").style.display = "none", 2200);
+                            } catch (e) {
+                                // fallback simples
+                                const ta = document.createElement("textarea");
+                                ta.value = msg;
+                                document.body.appendChild(ta);
+                                ta.select();
+                                document.execCommand("copy");
+                                document.body.removeChild(ta);
+                                $("okBox").style.display = "block";
+                                setTimeout(() => $("okBox").style.display = "none", 2200);
+                            }
+                        }
+
+                        $("btnWhats").addEventListener("click", openWhatsApp);
+                        $("btnCopiar").addEventListener("click", copyMessage);
+
+                        // Sugestão: força mínimo 100 (sem travar o usuário)
+                        $("qtd").addEventListener("blur", () => {
+                            const raw = $("qtd").value.replace(/[^\d]/g, "");
+                            if (!raw) return;
+                            const n = parseInt(raw, 10);
+                            if (!Number.isNaN(n) && n < 100) {
+                                alert("Lembrete: a NewSoul trabalha com quantidade mínima de 100 unidades. 😉");
+                            }
+                        });
+                    </script>
+</body>
+
+</html>
